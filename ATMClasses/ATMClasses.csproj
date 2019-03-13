@@ -51,6 +51,7 @@
     <Compile Include="Render.cs" />
     <Compile Include="Tracks.cs" />
     <Compile Include="Update.cs" />
+    <Compile Include="Writer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
