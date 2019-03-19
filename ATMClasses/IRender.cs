@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATMClasses
 {
-    public class Render
+    public interface IRender
     {
         double direction_ { get; set; }
         DateTime Date { get; set; }

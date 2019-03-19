@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ATMClasses
 {
-    public class Writer
+    public interface IWriter
     {
-
+        void write();
     }
 }

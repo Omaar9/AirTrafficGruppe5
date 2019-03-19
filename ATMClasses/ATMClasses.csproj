@@ -47,6 +47,9 @@
     <Compile Include="Decoding.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="File.cs" />
+    <Compile Include="IWriter.cs" />
+    <Compile Include="IRender.cs" />
+    <Compile Include="IUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Render.cs" />
     <Compile Include="TransponderReceiver.cs" />

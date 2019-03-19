@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace ATMClasses
 {
-    class ConditionDetecter
+    public class ConditionDetecter
     {
+        public  DateTime detectTime_ { get; }
+        public List<Render> DetectningFligts_ { get; }
+
+        public ConditionDetecter(List<Render> All_Flights)
+        {
+            detectTime_=DateTime.Now;
+            DetectningFligts_ = All_Flights;
+        }
+
     }
 }
