@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATMClasses
 {
-    class Tracks
+    class TransponderReceiver
     {
     }
 }

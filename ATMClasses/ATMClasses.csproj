@@ -43,14 +43,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Condition.cs" />
     <Compile Include="ConditionDetecter.cs" />
     <Compile Include="Decoding.cs" />
     <Compile Include="Filter.cs" />
-    <Compile Include="Log.cs" />
+    <Compile Include="File.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Render.cs" />
-    <Compile Include="Tracks.cs" />
+    <Compile Include="TransponderReceiver.cs" />
     <Compile Include="Update.cs" />
     <Compile Include="Writer.cs" />
   </ItemGroup>
