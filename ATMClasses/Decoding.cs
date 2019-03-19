@@ -21,6 +21,7 @@ namespace ATMClasses
         public void DataHandler(object o, RawTransponderDataEventArgs eventArgs)
         {
             List<string> recList = eventArgs.TransponderData;
+            //comment
         }
     }
 }
