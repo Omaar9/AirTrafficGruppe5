@@ -60,7 +60,6 @@ namespace ATMClasses
 
             }
 
-
         }
 
         public void TrackRemove(string tag)
