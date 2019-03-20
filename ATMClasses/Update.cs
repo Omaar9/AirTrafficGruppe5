@@ -10,22 +10,22 @@ namespace ATMClasses
     public class Update
     {
         //Attributter
-        public  DateTime Date { get; set; }
-        public double X_coordinates { get; set; }
-        public double Y_coordinates { get; set; }
-        public string Tag_ { get; set; }
-        public double Altitude_ { get; set; }
-        public bool Airspace_ { get; set; }
+        public DateTime _date { get; set; }
+        public double _xcoordinate { get; set; }
+        public double _ycoordinate { get; set; }
+        public string _tag { get; set; }
+        public double _altitude { get; set; }
+        public bool _airspace { get; set; }
 
         //Constructor
         public Update(DateTime date, double X, double Y, string tag, double altitude)
         {
-            Date = date;
-            X_coordinates = X;
-            Y_coordinates = Y;
-            Tag_ = tag;
-            Altitude_ = altitude;
-            Airspace_ = FlightsInSpace(X, Y, altitude);
+            _date = date;
+            _xcoordinate = X;
+            _ycoordinate = Y;
+            _tag = tag;
+            _altitude = altitude;
+            _airspace = FlightsInSpace(X, Y, altitude);
         }
 
         //Metode
@@ -35,9 +35,12 @@ namespace ATMClasses
             {
                 return true;
             }
+
             return false;
 
         }
 
+
     }
+
 }

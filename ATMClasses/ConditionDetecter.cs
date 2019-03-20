@@ -8,13 +8,13 @@ namespace ATMClasses
 {
     public class ConditionDetecter
     {
-        public  DateTime detectTime_ { get; }
-        public List<Render> DetectningFligts_ { get; }
+        public  DateTime _detectTime { get; }
+        public List<Track> _detectningFligts { get; }
 
-        public ConditionDetecter(List<Render> All_Flights)
+        public ConditionDetecter(List<Track> All_Flights)
         {
-            detectTime_=DateTime.Now;
-            DetectningFligts_ = All_Flights;
+            _detectTime = DateTime.Now;
+            _detectningFligts = All_Flights;
         }
 
     }
