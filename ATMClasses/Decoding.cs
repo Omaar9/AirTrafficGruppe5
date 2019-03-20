@@ -11,16 +11,18 @@ namespace ATMClasses
     {
         public class TransponderReceiver : EventArgs
         {
-            public string Signal { get; set; }
+            public List<IUpdate> Signal { get; set; }
         }
 
-        private ITransponderReceiver receiver;
+        private ITransponderReceiver _receiver;
+        public event EventHandler<UpdateEvent> _updateTrackCreated;
+        public List<IUpdate> _fTracks { get; set; }
 
         public Decoding(ITransponderReceiver myReceiver)
         {
-            receiver = myReceiver;
+            _receiver = myReceiver;
 
-            receiver.TransponderDataReady += DataHandler; //datahandler will be added to an internal list that the event keeps track of (when the owning class fires that event, all the delegates in the list will be called)
+            _receiver.TransponderDataReady += DataHandler; //datahandler will be added to an internal list that the event keeps track of (when the owning class fires that event, all the delegates in the list will be called)
 
         }
 
@@ -28,13 +30,42 @@ namespace ATMClasses
         public void DataHandler(object o, RawTransponderDataEventArgs eventArgs)
         {
             List<string> recList = eventArgs.TransponderData;
+            _updateTracks = new List<IUpdate>();
            
-            foreach (var er in recList)
+            foreach (var track in recList)
             {
-                Console.WriteLine(er);
+                Console.WriteLine(track);
             }
 
+        }
+
+        public void Seperater(String track)
+        {
+            string[] transData = track.Split(';');
+
+            DateTime dt = DateTime.ParseExact(transData[4], "yyyyMMddHHmmssfff", System.Globalization.CultureInfo.InvariantCulture);
+
+            IUpdate updateTrack = new Update(
+                transData[0],
+                Convert.ToDouble(transData[1]),
+                Convert.ToDouble(transData[2]),
+                Convert.ToDouble(transData[3]), 
+                dt
+                );
+            _updateTracks.Add(updateTrack);
 
         }
+
+        protected virtual void onUpdateTrackCreated(List<IUpdate> utrack)
+        {
+            _updateTrackCreated?.Invoke(this, new UpdateEvent() { updatetracks = utrack });
+        }
+            
+           
+        public class UpdateEvent : EventArgs
+        {
+            public List<IUpdate> updatetracks { get; set; }
+        }
+
     }
 }
