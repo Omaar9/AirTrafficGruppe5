@@ -8,5 +8,6 @@ namespace ATMClasses
 {
     public class TransponderReceiver
     {
+
     }
 }

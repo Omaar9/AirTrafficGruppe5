@@ -8,12 +8,16 @@ namespace ATMClasses
 {
     public interface ITrack
     {
-        double _direction { get; set; }
-        DateTime _date { get; set; }
-        double _xcoordinates { get; set; }
-        double _ycoordinates { get; set; }
-        string _tag { get; set; }
-        double _altitude { get; set; }
-        bool _velocity { get; set; }
+        double direction_ { get; set; }
+        DateTime Date { get; set; }
+        double X_coordinates { get; set; }
+        double Y_coordinates { get; set; }
+        string Tag_ { get; set; }
+        double Altitude_ { get; set; }
+        double Velocity { get; set; }
+
+        double Distance(double x1, double x2, double y1, double y2);
+        double CalculateVelocity(double x1, double x2, double y1, double y2, DateTime date1, DateTime date2);
+        double CalculateDegree(double x1, double x2, double y1, double y2);
     }
 }

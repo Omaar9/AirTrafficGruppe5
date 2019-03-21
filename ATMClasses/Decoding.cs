@@ -7,16 +7,13 @@ using TransponderReceiver;
 namespace ATMClasses
 {
 
-    public class Decoding
+    public class Decoding : IDecoding
     {
-        public class TransponderReceiver : EventArgs
-        {
-            public List<IUpdate> Signal { get; set; }
-        }
 
         private ITransponderReceiver _receiver;
-        public event EventHandler<UpdateEvent> _updateTrackCreated;
-        public List<IUpdate> _fTracks { get; set; }
+        public List<IUpdate> _ftracks { get; set; }
+        public event EventHandler<UpdateEvent> _updateCreated;
+        
 
         public Decoding(ITransponderReceiver myReceiver)
         {
@@ -30,13 +27,13 @@ namespace ATMClasses
         public void DataHandler(object o, RawTransponderDataEventArgs eventArgs)
         {
             List<string> recList = eventArgs.TransponderData;
-            _updateTracks = new List<IUpdate>();
-           
+            _ftracks = new List<IUpdate>();
+            //  foreach (var track in e.TransponderData)
             foreach (var track in recList)
             {
                 Console.WriteLine(track);
             }
-
+            onUpdateCreated(_ftracks);
         }
 
         public void Seperater(String track)
@@ -45,20 +42,22 @@ namespace ATMClasses
 
             DateTime dt = DateTime.ParseExact(transData[4], "yyyyMMddHHmmssfff", System.Globalization.CultureInfo.InvariantCulture);
 
+
             IUpdate updateTrack = new Update(
                 transData[0],
                 Convert.ToDouble(transData[1]),
                 Convert.ToDouble(transData[2]),
-                Convert.ToDouble(transData[3]), 
+                Convert.ToDouble(transData[3]),
                 dt
-                );
-            _updateTracks.Add(updateTrack);
+            );
+
+            _ftracks.Add(updateTrack);
 
         }
 
-        protected virtual void onUpdateTrackCreated(List<IUpdate> utrack)
+        protected virtual void onUpdateCreated(List<IUpdate> utrack)
         {
-            _updateTrackCreated?.Invoke(this, new UpdateEvent() { updatetracks = utrack });
+            _updateCreated?.Invoke(this, new UpdateEvent() { updatetracks = utrack });
         }
             
            

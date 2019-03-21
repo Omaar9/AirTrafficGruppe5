@@ -8,11 +8,13 @@ namespace ATMClasses
 {
     public interface IUpdate
     {
-        DateTime _date { get; set; }
+        string _tag { get; set; }
         double _xcoordinate { get; set; }
         double _ycoordinate { get; set; }
-        string _tag { get; set; }
         double _altitude { get; set; }
-        bool _airspace { get; set; }
+        DateTime _date { get; set; }
+        bool InAirspace { get; set; }
+        bool FlightsInSpace(double X, double Y, double A);
     }
 }
+

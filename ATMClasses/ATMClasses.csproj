@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="ConditionDetecter.cs" />
     <Compile Include="Decoding.cs" />
-    <Compile Include="Filter.cs" />
     <Compile Include="File.cs" />
+    <Compile Include="Filter.cs" />
     <Compile Include="Interface\IDecoding.cs" />
     <Compile Include="Interface\IFilter.cs" />
     <Compile Include="Interface\IWriter.cs" />

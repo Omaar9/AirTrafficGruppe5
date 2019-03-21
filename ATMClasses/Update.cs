@@ -7,25 +7,26 @@ using TransponderReceiver;
 
 namespace ATMClasses
 {
-    public class Update
+    public class Update : IUpdate
     {
         //Attributter
-        public DateTime _date { get; set; }
+
+        public string _tag { get; set; }
         public double _xcoordinate { get; set; }
         public double _ycoordinate { get; set; }
-        public string _tag { get; set; }
         public double _altitude { get; set; }
-        public bool _airspace { get; set; }
+        public DateTime _date { get; set; }
+        public bool InAirspace { get; set; }
 
         //Constructor
-        public Update(DateTime date, double X, double Y, string tag, double altitude)
+        public Update(string tag, double X, double Y, double altitude, DateTime date)
         {
-            _date = date;
-            _xcoordinate = X;
-            _ycoordinate = Y;
-            _tag = tag;
-            _altitude = altitude;
-            _airspace = FlightsInSpace(X, Y, altitude);
+            this._tag = tag;
+            this._date = date;
+            this._xcoordinate = X;
+            this._ycoordinate = Y;
+            this._altitude = altitude;
+            this.InAirspace = FlightsInSpace(X, Y, altitude);
         }
 
         //Metode
@@ -39,8 +40,6 @@ namespace ATMClasses
             return false;
 
         }
-
-
     }
 
 }
