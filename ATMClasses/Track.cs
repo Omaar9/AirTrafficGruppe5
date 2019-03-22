@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATMClasses
 {
-    class Track : ITrack
+    public class Track : ITrack
     {
         public double direction_ { get; set; }
         public DateTime Date { get; set; }
