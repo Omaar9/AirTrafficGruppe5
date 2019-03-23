@@ -46,9 +46,9 @@ namespace Test.ATM.Unitest
 
         public void Coordinates_Date_Return_Velocity1()
         {
-            DateTime dt1 = DateTime.ParseExact("20190320", "yyyyMMdd",
+            DateTime dt1 = DateTime.ParseExact("20190320", "yyyymmddhhmmssfff",
                 System.Globalization.CultureInfo.InvariantCulture);
-            DateTime dt2 = DateTime.ParseExact("20190320", "yyyyMMdd",
+            DateTime dt2 = DateTime.ParseExact("20190320", "yyyymmddhhmmssfff",
                 System.Globalization.CultureInfo.InvariantCulture);
 
             track1._date = dt1;
@@ -71,9 +71,9 @@ namespace Test.ATM.Unitest
 
         public void Coordinates_Date_Return_Velocity2()
         {
-            DateTime dt1 = DateTime.ParseExact("20190320", "yyyyMMdd",
+            DateTime dt1 = DateTime.ParseExact("20190320", "yyyymmddhhmmssfff",
                 System.Globalization.CultureInfo.InvariantCulture);
-            DateTime dt2 = DateTime.ParseExact("20190320", "yyyyMMdd",
+            DateTime dt2 = DateTime.ParseExact("20190320", "yyyymmddhhmmssfff",
                 System.Globalization.CultureInfo.InvariantCulture);
 
             track1._date = dt1;

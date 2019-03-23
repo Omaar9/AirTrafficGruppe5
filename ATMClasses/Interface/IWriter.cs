@@ -8,6 +8,6 @@ namespace ATMClasses
 {
     public interface IWriter
     {
-        void write();
+        void write(Track track);
     }
 }
