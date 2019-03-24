@@ -12,8 +12,7 @@ namespace ATMClasses
         event EventHandler<UpdateEvent> _updateCreated;
 
         object _dictionaryUpdate { get; set; }
-        //object TrackDic { get; set; }
-
-        void Separater(string track);
+        
+        void Split(string track);
     }
 }
