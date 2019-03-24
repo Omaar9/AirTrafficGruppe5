@@ -62,12 +62,12 @@ namespace ATMClasses
         }
         protected virtual void onSplitCreated(List<ConditionDetecter> conditiontracks)
         {
-            SplitCreated?.Invoke(this, new SplitEvent() { ConditionDetecters = conditiontracks });
+            SplitCreated?.Invoke(this, new SplitEvent() { Conditiontracks= conditiontracks });
         }
      }
 
     public class SplitEvent : EventArgs
     {
-        public List<ConditionDetecter> ConditionDetecters { get; set; }
+        public List<ConditionDetecter> Conditiontracks { get; set; }
     }
 }
