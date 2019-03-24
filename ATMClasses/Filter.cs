@@ -14,11 +14,12 @@ namespace ATMClasses
             public Dictionary<string, ITrack> _dictionaryTrack { get; set; }
             public event EventHandler<TrackEvent> TrackEdited;
             public List<IUpdate> _uTracks { get; set; }
+        public object updateDic { get; set; }
 
 
-            //Skal subscribe på event i constructor
+        //Skal subscribe på event i constructor
 
-            public Filter(IDecoding decoding)
+        public Filter(IDecoding decoding)
             {
              _dictionaryTrack = new Dictionary<string, ITrack>();
              _dictionaryUpdate = new Dictionary<string, IUpdate>();

@@ -13,12 +13,15 @@ namespace ATMClasses
 
         private List<ConditionDetecter> conditionTracks;
         public event EventHandler<SplitEvent> SplitCreation;
+        public event EventHandler<SplitEvent> SplitCreated;
+
         public Dictionary<String, ITrack> tracks { get; set; }
 
         public Writer(IFilter trackfilter, List<ConditionDetecter> conditionTracks)
         {
             trackfilter.TrackEdited += onTrackEdited;
-            conditionTracks.SplitCreated += onSplitCreated;
+            //conditionTracks.SplitCreated += onSplitCreated;
+           
         }
 
         public void onTrackEdited(object source, TrackEvent trackEvent)
@@ -94,6 +97,15 @@ namespace ATMClasses
             }
         
         }
- 
+
+        public void Write(Track track)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void write()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

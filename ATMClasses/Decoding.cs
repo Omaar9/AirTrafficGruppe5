@@ -13,7 +13,8 @@ namespace ATMClasses
         private ITransponderReceiver _receiver;
         public List<IUpdate> _ftracks { get; set; }
         public event EventHandler<UpdateEvent> _updateCreated;
-        
+        public object trackDic { get; set; }
+
 
         public Decoding(ITransponderReceiver myReceiver)
         {

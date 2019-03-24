@@ -8,7 +8,7 @@ namespace ATMClasses
 {
     public interface IWriter
     {
-        event EventHandler<SplitEvent> SplitCreated;
+        event EventHandler<Writer.SplitEvent> SplitCreated;
 
         double Distance(ITrack track1, ITrack track2);
         void onTrackEdited(object source, TrackEvent trackEvent);
