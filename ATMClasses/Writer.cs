@@ -20,19 +20,19 @@ namespace ATMClasses
         {
             Console.Clear();
 
-            String[] l = new String[condition.ConditionDetecters.Count];
+            String[] l = new String[condition.Conditiontracks.Count];
 
-            for (int i = 0; i < condition.ConditionDetecters.Count; i++)
+            for (int i = 0; i < condition.Conditiontracks.Count; i++)
             {
                 l[i] = "Flight are in DANGER";
 
-                for (int j = 0; j < condition.ConditionDetecters[i]._detectingFligts.Count; j++)
+                for (int j = 0; j < condition.Conditiontracks[i].detectingFligts.Count; j++)
                 {
-                    l[i] += condition.ConditionDetecters[i]._detectingFligts[j]._tag + ", ";
+                    l[i] += condition.Conditiontracks[i].detectingFligts[j]._tag + ", ";
                 }
 
-                l[i] += condition.ConditionDetecters[i]._detectTime + ":" +
-                        condition.ConditionDetecters[i]._detectTime.Millisecond;
+                l[i] += condition.Conditiontracks[i].detectTime + ":" +
+                        condition.Conditiontracks[i].detectTime.Millisecond;
             }
 
             for (int i = 0; i < l.Length; i++)

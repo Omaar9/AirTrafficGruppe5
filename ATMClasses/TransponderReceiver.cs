@@ -9,7 +9,7 @@ namespace ATMClasses
 {
     public class TransponderReceiver
     {
-
+        
     }
 
     public class RawTransponderDataEventArgs : EventArgs
