@@ -9,23 +9,23 @@ namespace ATMClasses
 {
     public class TransponderReceiver
     {
-        
-    }
-
-    public class RawTransponderDataEventArgs : EventArgs
-    {
-        public List<string> TransponderData;
-        public RawTransponderDataEventArgs(List<string> transponderData)
+        public class RawTransponderDataEventArgs : EventArgs
         {
-            TransponderData = transponderData;
+            public List<string> TransponderData;
+            public RawTransponderDataEventArgs(List<string> transponderData)
+            {
+                TransponderData = transponderData;
+            }
+        }
+        public interface ITransponderReceiver
+        {
+            event EventHandler<RawTransponderDataEventArgs> TransponderDataReady;
+        }
+        public class TransponderReceiverFactory
+        {
+            public static ITransponderReceiver CreateTransponderDataReceiver { get; }
         }
     }
-    public interface ITransponderReceiver
-    {
-        event EventHandler<RawTransponderDataEventArgs> TransponderDataReady;
-    }
-    public class TransponderReceiverFactory
-    {
-        public static ITransponderReceiver CreateTransponderDataReceiver { get; }
-    }
+
+    
 }
