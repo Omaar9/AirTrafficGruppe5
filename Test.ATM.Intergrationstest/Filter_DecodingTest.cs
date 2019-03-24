@@ -12,10 +12,10 @@ namespace Test.ATM.Intergrationstest
 {
     class Filter_DecodingTest
     {
-        private ITransponderReceiver transponder;
-        private List<IUpdate> list_;
-        private IDecoding decoding_;
-        private Filter filter_;
+        private ITransponderReceiver reciever;
+        private List<IUpdate> list;
+        private IDecoding decoding;
+        private Filter filter;
         private Decoding.UpdateEvent event_;
         private IUpdate track1;
         private IUpdate track2;
@@ -26,12 +26,12 @@ namespace Test.ATM.Intergrationstest
         [SetUp]
         public void SetUp()
         {
-            transponder = Substitute.For<ITransponderReceiver>();
+            reciever = Substitute.For<ITransponderReceiver>();
 
-            decoding_ = new Decoding(transponder);
-            filter_ = new Filter(decoding_);
+            decoding = new Decoding(reciever);
+            filter = new Filter(decoding);
 
-            list_ = new List<IUpdate>();
+            list = new List<IUpdate>();
             event_ = new Decoding.UpdateEvent();
 
             track1 = Substitute.For<IUpdate>();
@@ -62,16 +62,16 @@ namespace Test.ATM.Intergrationstest
             track4._altitude = 500;
             track4.InAirspace = true;
 
-            list_.Add(track1);
-            list_.Add(track2);
-            list_.Add(track3);
-            list_.Add(track4);
+            list.Add(track1);
+            list.Add(track2);
+            list.Add(track3);
+            list.Add(track4);
 
-            event_.updatetracks = list_;
+            event_.updatetracks = list;
 
-            filter_.onUpdateCreated(decoding_, event_);
+            filter.OnUpdateCreated(decoding, event_);
 
-            decoding_._updateCreated += filter_.onUpdateCreated;
+            decoding._updateCreated += filter.OnUpdateCreated;
 
         }
 
@@ -79,13 +79,14 @@ namespace Test.ATM.Intergrationstest
         [Test]
         public void update_tracks()
         {
-            Assert.That(decoding_.trackDic.Equals("1111"));
+            Assert.That(decoding._dictionaryUpdate.Equals("1111"));
+            
         }
 
         [Test]
         public void update_tracks2()
         {
-            Assert.That(decoding_.trackDic.Equals("2222"));
+            Assert.That(decoding._dictionaryUpdate.Equals("2222"));
         }
     }
 }

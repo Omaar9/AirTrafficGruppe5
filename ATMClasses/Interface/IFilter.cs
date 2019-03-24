@@ -13,8 +13,8 @@ namespace ATMClasses
         List<IUpdate> _uTracks { get; set; }
         Dictionary<string, ITrack> _dictionaryTrack { get; }
         Dictionary<string, IUpdate> _dictionaryUpdate { get; }
-        void CreateTrack(IUpdate _updateTrack);
-        void onUpdateCreated(object source, UpdateEvent uTrack);
+        void CreateTrack(IUpdate updateTrack);
+        void OnUpdateCreated(object source, UpdateEvent uTrack);
         void RemoveTrack(string tag);
 
    

@@ -9,7 +9,7 @@ using NSubstitute;
 
 namespace Test.ATM.Intergrationstest
 {
-    class Filter_TrackTest
+    public class Filter_TrackTest
     {
         private IDecoding decoding_;
         private Filter filter_;
@@ -60,7 +60,7 @@ namespace Test.ATM.Intergrationstest
         public void TrackCreated()
         {
            
-            Assert.That(filter_.updateDic.Equals(updatetrack._tag));
+            Assert.That(filter_._dictionaryUpdate.Equals(updatetrack._tag));
         }
     }
 }

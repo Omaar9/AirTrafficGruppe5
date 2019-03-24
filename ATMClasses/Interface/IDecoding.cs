@@ -10,8 +10,10 @@ namespace ATMClasses
     public interface IDecoding
     {
         event EventHandler<UpdateEvent> _updateCreated;
-        object trackDic { get; set; }
 
-        void Seperater(string track);
+        object _dictionaryUpdate { get; set; }
+        //object TrackDic { get; set; }
+
+        void Separater(string track);
     }
 }

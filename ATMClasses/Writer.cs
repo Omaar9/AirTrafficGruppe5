@@ -42,7 +42,7 @@ namespace ATMClasses
                 {
                     if (Distance(flight[i], flight[j]) < 5000)
                     {
-                        if (Math.Abs(flight[i].Altitude_ - flight[j].Altitude_) < 300)
+                        if (Math.Abs(flight[i]._altitude - flight[j]._altitude) < 300)
                         {
                             List<ITrack> condition = new List<ITrack>();
                             condition.Add(flight[i]);
@@ -61,7 +61,7 @@ namespace ATMClasses
         
         public double Distance(ITrack track1, ITrack track2)
         {
-            double hyp1 = Math.Sqrt(Math.Pow((track1.X_coordinates - track2.X_coordinates), 2) + Math.Pow((track1.Y_coordinates - track2.Y_coordinates), 2));
+            double hyp1 = Math.Sqrt(Math.Pow((track1._xcoordinate - track2._xcoordinate), 2) + Math.Pow((track1._ycoordinate - track2._ycoordinate), 2));
             return Math.Abs(hyp1);
         }
         protected virtual void onSplitCreated(List<ConditionDetecter> condtiontracks)
@@ -84,7 +84,7 @@ namespace ATMClasses
 
                 for (int j = 0; j < condition.ConditionDetecters[i]._detectingFligts.Count; j++)
                 {
-                    l[i] += condition.ConditionDetecters[i]._detectingFligts[j].Tag_ + ", ";
+                    l[i] += condition.ConditionDetecters[i]._detectingFligts[j]._tag + ", ";
                 }
 
                 l[i] += condition.ConditionDetecters[i]._detectTime + ":" +

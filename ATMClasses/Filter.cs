@@ -14,7 +14,7 @@ namespace ATMClasses
             public Dictionary<string, ITrack> _dictionaryTrack { get; set; }
             public event EventHandler<TrackEvent> TrackEdited;
             public List<IUpdate> _uTracks { get; set; }
-        public object updateDic { get; set; }
+        //public object updateDic { get; set; }
 
 
         //Skal subscribe på event i constructor
@@ -23,17 +23,17 @@ namespace ATMClasses
             {
              _dictionaryTrack = new Dictionary<string, ITrack>();
              _dictionaryUpdate = new Dictionary<string, IUpdate>();
-             decoding._updateCreated += onUpdateCreated;
+             decoding._updateCreated += OnUpdateCreated;
              _uTracks = new List<IUpdate>();
             }
-        //Event som skal kaldes, når der laves nyt pseudoObjekt
-        public void onUpdateCreated(object sender, UpdateEvent uTrack)
+        //Event som skal kaldes, når der laves nyt UpdateObjekt
+        public void OnUpdateCreated(object sender, UpdateEvent uTrack)
         {
             _uTracks = uTrack.updatetracks;
             foreach (IUpdate updateTrack in _uTracks)
             {
                 // Dummy kode, bruges bare til at være sikker på at event virker
-                //Console.WriteLine("Event raised - pseudotrack recieved: " + pseudoTrack.Tag);
+                //Console.WriteLine("Event raised - updatetrack recieved: " + updateTrack.Tag);
 
                 if (_dictionaryUpdate.ContainsKey(updateTrack._tag))
                 {
@@ -71,17 +71,17 @@ namespace ATMClasses
             }
 
 
-            public void CreateTrack(IUpdate updatetrack)
+            public void CreateTrack(IUpdate updateTrack)
             {
-                if (_dictionaryTrack.ContainsKey(updatetrack._tag))
+                if (_dictionaryTrack.ContainsKey(updateTrack._tag))
                 {
-                    _dictionaryTrack[updatetrack._tag] = new Track(_dictionaryUpdate[updatetrack._tag], updatetrack);
+                    _dictionaryTrack[updateTrack._tag] = new Track(_dictionaryUpdate[updateTrack._tag], updateTrack);
                 }
                 else
                 {
-                    _dictionaryTrack.Add(updatetrack._tag, new Track(_dictionaryUpdate[updatetrack._tag], updatetrack));
+                    _dictionaryTrack.Add(updateTrack._tag, new Track(_dictionaryUpdate[updateTrack._tag], updateTrack));
                 }
-                _dictionaryUpdate[updatetrack._tag] = updatetrack;
+                _dictionaryUpdate[updateTrack._tag] = updateTrack;
 
                 onTrackEdited(_dictionaryTrack);
 
