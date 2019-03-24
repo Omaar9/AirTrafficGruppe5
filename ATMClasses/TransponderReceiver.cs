@@ -3,21 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TransponderReceiver;
 
 namespace ATMClasses
 {
     public class TransponderReceiver
     {
-    }
 
-    public class RawTransponderDataEventArgs: EventArgs
-    {
-        public List<string> TransponderData { get; }
-        public RawTransponderDataEventArgs(List<string> transponderData)
-        {
-            TransponderData = transponderData;
-        }
-        
     }
 
     public interface ITransponderReceiver
