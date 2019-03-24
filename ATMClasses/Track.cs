@@ -9,26 +9,26 @@ namespace ATMClasses
     public class Track : ITrack
     {
         public double direction_ { get; set; }
-        public DateTime Date { get; set; }
-        public double X_coordinates { get; set; }
-        public double Y_coordinates { get; set; }
-        public string Tag_ { get; set; }
-        public double Altitude_ { get; set; }
+        public DateTime _date { get; set; }
+        public double _xcoordinate { get; set; }
+        public double _ycoordinate { get; set; }
+        public string _tag { get; set; }
+        public double _altitude { get; set; }
         public double Velocity { get; set; }
 
-        public Track(IUpdate previousTrack, IUpdate currentTrack)
+        public Track(IUpdate beforeTrack, IUpdate nowTrack)
         {
-            this.Tag_ = currentTrack._tag;
-            X_coordinates = currentTrack._xcoordinate;
-            Y_coordinates = currentTrack._ycoordinate;
-            this.Altitude_ = currentTrack._altitude;
-            this.Date = currentTrack._date;
+            this._tag = nowTrack._tag;
+            _xcoordinate = nowTrack._xcoordinate;
+            _ycoordinate = nowTrack._ycoordinate;
+            this._altitude = nowTrack._altitude;
+            this._date = nowTrack._date;
 
 
-            Velocity = CalculateVelocity(previousTrack._xcoordinate, X_coordinates, previousTrack._ycoordinate, Y_coordinates, previousTrack._date,
-                Date);
+            Velocity = CalculateVelocity(beforeTrack._xcoordinate, _xcoordinate, beforeTrack._ycoordinate, _ycoordinate, beforeTrack._date,
+                _date);
 
-            direction_ = CalculateDegree(previousTrack._xcoordinate, X_coordinates, previousTrack._ycoordinate, Y_coordinates);
+            direction_ = CalculateDegree(beforeTrack._xcoordinate, _xcoordinate, beforeTrack._ycoordinate, _ycoordinate);
         }
 
         public double Distance(double x1, double x2, double y1, double y2)
@@ -40,8 +40,8 @@ namespace ATMClasses
         public double CalculateVelocity(double x1, double x2, double y1, double y2, DateTime date1, DateTime date2)
         {
             double hyp = Distance(x1, x2, y1, y2);
-            TimeSpan span = date2 - date1;
-            double timedef = span.TotalMilliseconds / 1000;
+            TimeSpan timeSpan = date2 - date1;
+            double timedef = timeSpan.TotalMilliseconds / 1000; 
             double v = hyp / timedef;
             return v;
         }

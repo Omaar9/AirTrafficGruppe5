@@ -9,11 +9,11 @@ namespace ATMClasses
     public interface ITrack
     {
         double direction_ { get; set; }
-        DateTime Date { get; set; }
-        double X_coordinates { get; set; }
-        double Y_coordinates { get; set; }
-        string Tag_ { get; set; }
-        double Altitude_ { get; set; }
+        DateTime _date { get; set; }
+        double _xcoordinate { get; set; }
+        double _ycoordinate { get; set; }
+        string _tag { get; set; }
+        double _altitude { get; set; }
         double Velocity { get; set; }
 
         double Distance(double x1, double x2, double y1, double y2);

@@ -13,10 +13,10 @@ namespace Test.ATM.Intergrationstest
 {
     public class Decoding_UpdateTest
     {
-        private ITransponderReceiver transponder;
-        private List<IUpdate> ptracks;
+        private ITransponderReceiver _receiver;
+        private List<IUpdate> _ftracks;
 
-        private RawTransponderDataEventArgs _fakeData;
+        private RawTransponderDataEventArgs _faketracks;
         private Decoding decoding;
         private List<string> list;
 
@@ -24,13 +24,13 @@ namespace Test.ATM.Intergrationstest
         public void SetUp()
         {
             list = new List<string>();
-            transponder = Substitute.For<ITransponderReceiver>();
-            ptracks = new List<IUpdate>();
-            decoding = new Decoding(transponder);
-            list.Add("Test1;111;222;333;20190325");
-            _fakeData = new RawTransponderDataEventArgs(list);
+            _receiver = Substitute.For<ITransponderReceiver>();
+            _ftracks = new List<IUpdate>();
+            decoding = new Decoding(_receiver);
+            list.Add("Test1;111;222;333;20190325120032121");
+            _faketracks = new RawTransponderDataEventArgs(list);
 
-            transponder.TransponderDataReady += Raise.EventWith(_fakeData);
+            _receiver.TransponderDataReady += Raise.EventWith(_faketracks);
         }
 
         [Test]
@@ -54,9 +54,9 @@ namespace Test.ATM.Intergrationstest
         [Test]
         public void Update_Created_Date()
         {
-            DateTime dt1 = DateTime.ParseExact("20190325", "yyyyMMddHHmmssfff",
+            DateTime datetime1 = DateTime.ParseExact("20190325120032121", "yyyyMMddHHmmssfff",
                 System.Globalization.CultureInfo.InvariantCulture);
-            Assert.That(decoding._ftracks[0]._date, Is.EqualTo(dt1));
+            Assert.That(decoding._ftracks[0]._date, Is.EqualTo(datetime1));
         }
     }
 }

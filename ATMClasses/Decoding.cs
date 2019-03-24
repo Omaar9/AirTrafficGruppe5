@@ -14,7 +14,9 @@ namespace ATMClasses
         private ITransponderReceiver _receiver;
         public List<IUpdate> _ftracks { get; set; }
         public event EventHandler<UpdateEvent> _updateCreated;
-        public object trackDic { get; set; }
+
+        public object _dictionaryUpdate { get; set; }
+        //public object TrackDic { get; set; }
 
 
         public Decoding(ITransponderReceiver myReceiver)
@@ -28,21 +30,27 @@ namespace ATMClasses
 
         public void DataHandler(object o, RawTransponderDataEventArgs eventArgs)
         {
-            List<string> recList = eventArgs.TransponderData;
+            //List<string> recList = eventArgs.TransponderData;
             _ftracks = new List<IUpdate>();
             //  foreach (var track in e.TransponderData)
-            foreach (var track in recList)
+            //foreach (var track in recList)
+            //{
+            //    Console.WriteLine(track);
+            //}
+            //onUpdateCreated(_ftracks);
+
+            foreach (var track in eventArgs.TransponderData)
             {
-                Console.WriteLine(track);
+                Separater(track);   
             }
             onUpdateCreated(_ftracks);
         }
 
-        public void Seperater(String track)
+        public void Separater(String track)
         {
             string[] transData = track.Split(';');
 
-            DateTime dt = DateTime.ParseExact(transData[4], "yyyyMMddHHmmssfff", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime dateTime = DateTime.ParseExact(transData[4], "yyyyMMddHHmmssfff", System.Globalization.CultureInfo.InvariantCulture);
 
 
             IUpdate updateTrack = new Update(
@@ -50,7 +58,7 @@ namespace ATMClasses
                 Convert.ToDouble(transData[1]),
                 Convert.ToDouble(transData[2]),
                 Convert.ToDouble(transData[3]),
-                dt
+                dateTime
             );
 
             _ftracks.Add(updateTrack);
