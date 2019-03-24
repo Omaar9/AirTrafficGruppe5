@@ -12,6 +12,14 @@ namespace ATMClasses
 
     }
 
+    public class RawTransponderDataEventArgs : EventArgs
+    {
+        public List<string> TransponderData;
+        public RawTransponderDataEventArgs(List<string> transponderData)
+        {
+            TransponderData = transponderData;
+        }
+    }
     public interface ITransponderReceiver
     {
         event EventHandler<RawTransponderDataEventArgs> TransponderDataReady;
