@@ -11,8 +11,9 @@ namespace Test.ATM.Unitest
 {
     public class UpdateTest
     {
-        [TestCase(10000, 10000, 20000)]
-        [TestCase(90000, 100000, 500)]
+        [TestCase(10000, 100000, 500)]
+        [TestCase(90000, 90000, 20000)]
+        
 
         //Metoden, scenario og det forvenetet resultat:
         public void BoundaryCoordinates_Returns_InAirspaceTrue(double X, double Y, double altitude)

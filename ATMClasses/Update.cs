@@ -32,7 +32,7 @@ namespace ATMClasses
         //Metode
         public bool FlightsInSpace(double X, double Y, double altitude)
         {
-            if (X >= 10000 && X <= 80000 && Y >= 80000 && Y <= 90000 && altitude >= 500 && altitude <= 20000)
+            if (X >= 10000 && X <= 90000 && Y >= 10000 && Y <= 90000 && altitude >= 500 && altitude <= 20000)
             {
                 return true;
             }
