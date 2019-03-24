@@ -46,7 +46,7 @@
     <Compile Include="AirSpace.cs" />
     <Compile Include="ConditionDetecter.cs" />
     <Compile Include="Decoding.cs" />
-    <Compile Include="File.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="Interface\IAirSpace.cs" />
     <Compile Include="Interface\IDecoding.cs" />

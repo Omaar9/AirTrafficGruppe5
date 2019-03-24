@@ -9,9 +9,9 @@ using ATMClasses.Interface;
 
 namespace ATMClasses
 {
-    public class File
+    public class FileWriter
     {
-        public File(IAirSpace airSpace)
+        public FileWriter(IAirSpace airSpace)
         {
             airSpace.SplitCreated += onSplitCreated;
         }
@@ -29,6 +29,8 @@ namespace ATMClasses
                 }
             }
         }
+
+       
 
         public string[] stringCreator(List<ConditionDetecter> c)
         {
