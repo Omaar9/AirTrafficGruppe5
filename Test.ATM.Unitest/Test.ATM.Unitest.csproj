@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AirSpaceTest.cs" />
+    <Compile Include="DecodingTest.cs" />
     <Compile Include="FilterTest.cs" />
     <Compile Include="TrackTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
