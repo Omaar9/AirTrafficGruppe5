@@ -13,8 +13,8 @@ namespace Test.ATM.Unitest
 
     class TrackTest
     {
-        private IUpdate track1;
-        private IUpdate track2;
+        private Update track1;
+        private Update track2;
 
         // test 1:
         [TestCase(50, 0, 0, 0, 50)]

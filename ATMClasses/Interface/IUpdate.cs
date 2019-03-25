@@ -14,7 +14,6 @@ namespace ATMClasses
         double _altitude { get; set; }
         DateTime _date { get; set; }
         bool InAirspace { get; set; }
-        bool FlightsInSpace(double X, double Y, double A);
     }
 }
 

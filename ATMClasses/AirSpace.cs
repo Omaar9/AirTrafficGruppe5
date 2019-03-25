@@ -14,7 +14,7 @@ namespace ATMClasses
 
         public Dictionary<String, ITrack> tracks { get; set; }
 
-        public AirSpace(IFilter trackfilter)
+        public AirSpace(IFilter trackfilter, IWriter writer)
         {
             trackfilter.TrackEdited += onTrackEdited;
             conditionTracks = new List<ConditionDetecter>();

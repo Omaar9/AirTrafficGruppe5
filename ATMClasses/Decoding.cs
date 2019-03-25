@@ -12,7 +12,7 @@ namespace ATMClasses
     {
 
         private ITransponderReceiver _receiver;
-        public List<IUpdate> _ftracks { get; set; }
+        public List<Update> _ftracks { get; set; }
         public event EventHandler<UpdateEvent> _updateCreated;
 
         public object _dictionaryUpdate { get; set; }
@@ -29,7 +29,7 @@ namespace ATMClasses
         public void DataHandler(object o, RawTransponderDataEventArgs eventArgs)
         {
             //List<string> recList = eventArgs.TransponderData;
-            _ftracks = new List<IUpdate>();
+            _ftracks = new List<Update>();
             //  foreach (var track in e.TransponderData)
             //foreach (var track in recList)
             //{
@@ -51,7 +51,7 @@ namespace ATMClasses
             DateTime dateTime = DateTime.ParseExact(transData[4], "yyyyMMddHHmmssfff", System.Globalization.CultureInfo.InvariantCulture);
 
 
-            IUpdate updateTrack = new Update(
+            Update updateTrack = new Update(
                 transData[0],
                 Convert.ToDouble(transData[1]),
                 Convert.ToDouble(transData[2]),
@@ -63,7 +63,7 @@ namespace ATMClasses
 
         }
 
-        protected virtual void onUpdateCreated(List<IUpdate> utrack)
+        protected virtual void onUpdateCreated(List<Update> utrack)
         {
             _updateCreated?.Invoke(this, new UpdateEvent() { updatetracks = utrack });
         }
@@ -71,7 +71,7 @@ namespace ATMClasses
            
         public class UpdateEvent : EventArgs
         {
-            public List<IUpdate> updatetracks { get; set; }
+            public List<Update> updatetracks { get; set; }
         }
 
     }

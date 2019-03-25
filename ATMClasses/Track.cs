@@ -16,7 +16,7 @@ namespace ATMClasses
         public double _altitude { get; set; }
         public double Velocity { get; set; }
 
-        public Track(IUpdate beforeTrack, IUpdate nowTrack)
+        public Track(Update beforeTrack, Update nowTrack)
         {
             this._tag = nowTrack._tag;
             _xcoordinate = nowTrack._xcoordinate;

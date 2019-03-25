@@ -10,10 +10,10 @@ namespace ATMClasses
     public interface IFilter
     {
         event EventHandler<TrackEvent> TrackEdited;
-        List<IUpdate> _uTracks { get; set; }
+        List<Update> _uTracks { get; set; }
         Dictionary<string, ITrack> _dictionaryTrack { get; }
-        Dictionary<string, IUpdate> _dictionaryUpdate { get; }
-        void CreateTrack(IUpdate updateTrack);
+        Dictionary<string, Update> _dictionaryUpdate { get; }
+        void CreateTrack(Update updateTrack);
         void OnUpdateCreated(object source, UpdateEvent uTrack);
         void RemoveTrack(string tag);
 
