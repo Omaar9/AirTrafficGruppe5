@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirTrafficGruppe5Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.ATM.Unitest", "Test.ATM.Unitest\Test.ATM.Unitest.csproj", "{A1C1687D-9600-4159-8020-011A6D9689D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.ATM.Intergrationstest", "Test.ATM.Intergrationstest\Test.ATM.Intergrationstest.csproj", "{F6F47BE8-CE8A-4228-86A1-F514E669B9AA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{A1C1687D-9600-4159-8020-011A6D9689D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1C1687D-9600-4159-8020-011A6D9689D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1C1687D-9600-4159-8020-011A6D9689D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6F47BE8-CE8A-4228-86A1-F514E669B9AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6F47BE8-CE8A-4228-86A1-F514E669B9AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6F47BE8-CE8A-4228-86A1-F514E669B9AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6F47BE8-CE8A-4228-86A1-F514E669B9AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
