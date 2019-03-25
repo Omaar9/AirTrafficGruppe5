@@ -8,13 +8,6 @@ namespace ATMClasses
 {
     public interface IWriter
     {
-        event EventHandler<Writer.SplitEvent> SplitCreated;
-
-        double Distance(ITrack track1, ITrack track2);
-        void onTrackEdited(object source, TrackEvent trackEvent);
-        Dictionary<String, ITrack> tracks { get; set; }
-
-        
-        void write();
+        void Write(Track track);
     }
 }

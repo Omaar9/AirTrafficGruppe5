@@ -16,9 +16,7 @@ namespace ATMClasses
         public event EventHandler<UpdateEvent> _updateCreated;
 
         public object _dictionaryUpdate { get; set; }
-        //public object TrackDic { get; set; }
-
-
+        
         public Decoding(ITransponderReceiver myReceiver)
         {
             _receiver = myReceiver;
@@ -41,12 +39,12 @@ namespace ATMClasses
 
             foreach (var track in eventArgs.TransponderData)
             {
-                Separater(track);   
+                Split(track);   
             }
             onUpdateCreated(_ftracks);
         }
 
-        public void Separater(String track)
+        public void Split(String track)
         {
             string[] transData = track.Split(';');
 
